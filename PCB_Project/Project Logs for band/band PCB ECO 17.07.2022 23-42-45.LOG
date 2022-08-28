@@ -1,0 +1,4 @@
+Removed Pin From Net: NetName=BUTTON Pin=U1-10
+Added Pin To Net: NetName=BUTTON Pin=U1-20
+Added Member To Class: ClassName=band Member=Component U1 ESP32-C3FN4/C3FH4
+Added Room: Name=band

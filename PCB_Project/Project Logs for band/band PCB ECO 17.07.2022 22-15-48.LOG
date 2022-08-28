@@ -1,0 +1,6 @@
+Removed Pin From Net: NetName=STAT_MCP Pin=U1-5
+Removed Pin From Net: NetName=I2C_SCL Pin=U1-6
+Change Component Designator: OldDesignator=ANT NewDesignator=ANT?
+Added Pin To Net: NetName=STAT_MCP Pin=U1-21
+Added Pin To Net: NetName=I2C_SCL Pin=U1-22
+Added Room: Name=band

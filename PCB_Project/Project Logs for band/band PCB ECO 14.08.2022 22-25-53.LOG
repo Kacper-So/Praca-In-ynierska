@@ -1,0 +1,7 @@
+Removed Pin From Net: NetName=I2C_SCL Pin=MD1-16
+Removed Pin From Net: NetName=I2C_SDA Pin=MD1-23
+Change Component Footprint: Designator=SW1 Old Footprint=FP-FSM1LP-MFG New Footprint=FP-FSM1LP-MFG
+Change Component Footprint: Designator=SW2 Old Footprint=FP-FSM1LP-MFG New Footprint=FP-FSM1LP-MFG
+Added Pin To Net: NetName=I2C_SCL Pin=MD1-11
+Added Pin To Net: NetName=I2C_SDA Pin=MD1-12
+Added Room: Name=band

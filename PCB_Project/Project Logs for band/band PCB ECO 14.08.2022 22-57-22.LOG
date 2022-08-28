@@ -1,0 +1,3 @@
+Removed Pin From Net: NetName=BATTERY_STATE Pin=MD1-36
+Added Pin To Net: NetName=BATTERY_STATE Pin=MD1-23
+Added Room: Name=band

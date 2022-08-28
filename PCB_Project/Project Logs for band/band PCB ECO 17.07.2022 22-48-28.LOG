@@ -1,0 +1,5 @@
+Removed Pin From Net: NetName=GYRO_INT_2 Pin=U1-25
+Removed Pin From Net: NetName=GYRO_INT_1 Pin=U1-26
+Added Pin To Net: NetName=GYRO_INT_1 Pin=U1-25
+Added Pin To Net: NetName=GYRO_INT_2 Pin=U1-26
+Added Room: Name=band

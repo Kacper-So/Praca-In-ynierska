@@ -1,0 +1,11 @@
+Removed Pin From Net: NetName=AG_INT1 Pin=MD1-26
+Removed Pin From Net: NetName=AG_INT2 Pin=MD1-27
+Removed Pin From Net: NetName=AG_DATA_EN Pin=MD1-28
+Removed Pin From Net: NetName=M_INT Pin=MD1-29
+Removed Pin From Net: NetName=M_DATA_RDY Pin=MD1-30
+Added Pin To Net: NetName=AG_DATA_EN Pin=MD1-6
+Added Pin To Net: NetName=AG_INT2 Pin=MD1-7
+Added Pin To Net: NetName=AG_INT1 Pin=MD1-8
+Added Pin To Net: NetName=M_INT Pin=MD1-9
+Added Pin To Net: NetName=M_DATA_RDY Pin=MD1-10
+Added Room: Name=band
