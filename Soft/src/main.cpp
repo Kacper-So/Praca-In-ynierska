@@ -312,28 +312,21 @@ void parse_MQTT(void *parameter){
           imu.calibrate();
           imu.calibrateMag();
           MQTTclient.publish("Debug", "Kalibracja zakonczona");
-        } else if (String(function) == "pasmo_zyroskopu"){
+        //polecenie zmieniajace odciecie filtru dp zyroskopu
+        } else if (String(function) == "odciecie_filtru_dp_zyroskopu"){
           if (atoi(argument) == 0 || atoi(argument) == 1 || atoi(argument) == 2 || atoi(argument) == 3){
-            MQTTclient.publish("Debug", "Zmieniono pasmo zyroskopu");
+            MQTTclient.publish("Debug", "Zmieniono parametry filtru dp zyroskopu");
             imu.settings.gyro.bandwidth = atoi(argument);
           } else {
-            MQTTclient.publish("Debug","Dostepne opcje to : 0, 1, 2, 3");
+            MQTTclient.publish("Debug","Dostepne opcje to : 0(14Hz), 1(31Hz), 2(31Hz), 3(31Hz");
           }
-        } else if (String(function) == "odciecie_zyroskopu"){
-          if (atoi(argument) == 0 || atoi(argument) == 1 || atoi(argument) == 2 || atoi(argument) == 3 ||
-              atoi(argument) == 4 || atoi(argument) == 5 || atoi(argument) == 6 || atoi(argument) == 7 ||
-              atoi(argument) == 8 || atoi(argument) == 9){
-            MQTTclient.publish("Debug", "Zmieniono odciecie zyroskopu");
-            imu.settings.gyro.HPFCutoff = atoi(argument);
-          } else {
-            MQTTclient.publish("Debug", "Dostepne opcje to : 0, 1, 2, 3, 4, 5, 6, 7, 8, 9");
-          }
-        } else if (String(function) == "pasmo_akcelerometru"){
+        //polecenie zmieniające odcięcie filtru dp akcelerometru
+        } else if (String(function) == "odciecie_filtru_dp_akcelerometru"){
           if (atoi(argument) == 0 || atoi(argument) == 1 || atoi(argument) == 2 || atoi(argument) == 3){
-            MQTTclient.publish("Debug", "Zmieniono pasmo akcelerometru");
-            imu.settings.accel.highResBandwidth = atoi(argument);
+            MQTTclient.publish("Debug", "Zmieniono parametry filtru dp akcelerometru");
+            imu.settings.accel.bandwidth = atoi(argument);
           } else {
-            MQTTclient.publish("Debug","Dostepne opcje to : 0, 1, 2, 3");
+            MQTTclient.publish("Debug","Dostepne opcje to : 0(50Hz), 1(105Hz), 2(211Hz), 3(408Hz)");
           }
         } else {
           MQTTclient.publish("Debug","Błedne polecenie");
@@ -386,11 +379,11 @@ void setup() {
     while(1);
   } else {
     Serial.println("imu good");
-    imu.settings.gyro.sampleRate = 4;
-    imu.settings.accel.sampleRate = 4;
+    imu.settings.gyro.sampleRate = 3;
+    imu.settings.accel.sampleRate = 3;
     imu.settings.mag.sampleRate = 7;
-    imu.settings.accel.highResEnable = true;
-    imu.settings.gyro.HPFEnable = true;
+    imu.settings.accel.highResEnable = false;
+    imu.settings.gyro.HPFEnable = false;
   }
   sema_MQTT_Parser = xSemaphoreCreateBinary();
   sema_data_rdy = xSemaphoreCreateBinary();
