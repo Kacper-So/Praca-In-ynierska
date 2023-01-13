@@ -251,7 +251,7 @@ void parse_MQTT(void *parameter){
           iter_argument++;
         }
         //w zaleznosci od tresci wiadomosci podejmowane są dzialania
-        //polecenie zmieniające częstotliwosc zbierania i wysylania danych
+        //polecenie zmieniajace czestotliwosc zbierania i wysylania danych
         if (String(function) == "czestotliwosc"){
           if (atof(argument) > 0 && atof(argument) <= 80){
             MQTTclient.publish("Debug", "Zmieniono czestotliwosc");
@@ -262,9 +262,9 @@ void parse_MQTT(void *parameter){
             MQTTclient.publish("Debug", "Maksymalna czetotliwosc to 80Hz");
           }
         //polecenie zmieniajace skale zyroskopu
-        } else if (String(function) == "Skala_zyroskopu"){
+        } else if (String(function) == "skala_zyroskopu"){
           if (atoi(argument) == 245 || atoi(argument) == 500 || atoi(argument) == 2000){
-            MQTTclient.publish("Debug", "Zmieniono skalę zyroskopu");
+            MQTTclient.publish("Debug", "Zmieniono skale zyroskopu");
             settings.gyro_scale = atoi(argument);
             //zmiana ustawien IMU
             imu.settings.gyro.scale = settings.gyro_scale;
@@ -272,7 +272,7 @@ void parse_MQTT(void *parameter){
             MQTTclient.publish("Debug", "Dostepne skalowanie dla zyroskopu : 245,500,2000");
           }
         //polecenie zmieniajace skale akcelerometru
-        } else if (String(function) == "Skala_akcelerometru"){
+        } else if (String(function) == "skala_akcelerometru"){
           if (atoi(argument) == 2 || atoi(argument) == 4 || atoi(argument) == 8 || atoi(argument) == 16){
             MQTTclient.publish("Debug", "Zmieniono skale akcelerometru");
             settings.accel_scale = atoi(argument);
@@ -282,7 +282,7 @@ void parse_MQTT(void *parameter){
             MQTTclient.publish("Debug", "Dostwpne skalowanie dla akcelerometru : 2,4,8,16");
           }
         //polecenie zmieniające skalw magnetometru
-        } else if (String(function) == "Skala_magnetometru"){
+        } else if (String(function) == "skala_magnetometru"){
           if (atoi(argument) == 4 || atoi(argument) == 8 || atoi(argument) == 12 || atoi(argument) == 16){
             MQTTclient.publish("Debug", "Zmieniono skale magnetometru ");
             settings.mag_scale = atoi(argument);
@@ -308,7 +308,7 @@ void parse_MQTT(void *parameter){
           MQTTclient.publish("Debug", String(settings.mag_scale).c_str());
           MQTTclient.publish("Debug", String(settings.ON_OFF).c_str());
         //polecenie rozpoczynajace proces kalibracji IMU
-        } else if (String(function) == "Kalibruj"){
+        } else if (String(function) == "kalibracja"){
           imu.calibrate();
           imu.calibrateMag();
           MQTTclient.publish("Debug", "Kalibracja zakonczona");
@@ -318,7 +318,7 @@ void parse_MQTT(void *parameter){
             MQTTclient.publish("Debug", "Zmieniono parametry filtru dp zyroskopu");
             imu.settings.gyro.bandwidth = atoi(argument);
           } else {
-            MQTTclient.publish("Debug","Dostepne opcje to : 0(14Hz), 1(31Hz), 2(31Hz), 3(31Hz");
+            MQTTclient.publish("Debug","Dostepne opcje to : 0(14Hz), 1(31Hz), 2(31Hz), 3(31Hz)");
           }
         //polecenie zmieniające odcięcie filtru dp akcelerometru
         } else if (String(function) == "odciecie_filtru_dp_akcelerometru"){
